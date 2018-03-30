@@ -11,12 +11,12 @@ def on_connect(client,userdata,flags,rc):
 
 Connected = False
 
-broker_address = "m11.cloudmqtt.com"
-port = 11552
-user = "suntitlo"
-password = "tJeugrFrkc0s"
+broker_address = "enter broker address here"
+port = 12345
+user = "user name"
+password = "password here"
 
-client = mqttClient.Client("/node-1234")
+client = mqttClient.Client("topic name")
 client.username_pw_set(user,password=password)
 client.on_connect = on_connect
 client.connect( broker_address,port=port)
@@ -27,7 +27,7 @@ try:
     while True:
 
         value = raw_input('enter the message')
-        client.publish("/node-1234/led",value)
+        client.publish("topic name as per MQTT",value)
 
 except KeyboardInterrupt:
 
